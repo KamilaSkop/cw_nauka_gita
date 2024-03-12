@@ -1,0 +1,270 @@
+
+//string obiekt, figura2D, figura3D, trojkaty;
+//dodac string obiekt - to 2d czy 3d
+
+
+// Spytaj użytkownika co chce policzyć
+System.out.println("Dla jakich figur chcesz dokonać obliczeń?");
+System.out.println("Co chcesz policzyć? Wpisz: \n [2D] - figura dwuwymiarowa \n [3D] - figura przestrzenna, trójwymiarowa");
+obiekt = keyboard.nextLine();
+switch (obiekt) {
+    case "2D": 
+        System.out.println("Wybrałeś figury 2D");
+        System.out.println("Dla jakiej figury chcesz policzyć jej pole i obwód? Wpisz: \n [P] - prostokąt \n [K] - koło \n [T] - trójkąt ");
+        figura2D = keyboard.nextLine();
+            switch (figura2D) {
+                case "P":
+                    System.out.print("Podaj bok a: ");
+                    a = keyboard.nextDouble();
+                    System.out.print("Podaj bok b: ");
+                    b = keyboard.nextDouble();
+                    Rectangle box = new Rectangle(a,b);
+                    System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                    info = "Prostokąt o bokach a=" + box.getLength() + " b=" + box.getWidth() + "\n ma pole S=" + box.getPole() + "\n i obwód L=" + box.getObwod();
+                    // Wyświetl wyniki
+                    JOptionPane.showMessageDialog(null, info);
+                    //zapisz dane w pliku
+                    saveData(file, nazwapliku, box);
+                    loadData(file);
+                    break;
+
+                case "K":
+                    System.out.println("Wybrałeś koło");
+                    System.out.print("Wpisz promień: ");
+                    r = keyboard.nextDouble();
+                    Circle box2 = new Circle(r);
+                    System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                    JOptionPane.showMessageDialog(null, "Koło o promieniu r=" + box2.getpromien() + "\n ma pole S=" + box2.getPole() +  "\n i obwod L=" + box2.getObwod());
+                    saveData(file, nazwapliku, box2);
+                    loadData(file);
+                    break;
+
+case "T":
+System.out.println("Wybrałeś trójkąt, dla jakiego trójkąta chcesz dokonać obliczeń? Wpisz: \n [1] - równoboczny \n [2] - prostokątny \n [3] - równoramienny \n [4] - inny");
+trojkaty = keyboard.nextLine();
+
+Switch (trojkaty){ //dorobić classy dla różnych trójkątów, jeśli to konieczne
+
+case "1":
+System.out.println("Wybrałeś trójkąt równoboczny");
+System.out.print("Wpisz długość boku trójkąta: a= ");
+boka = keyboard.nextDouble();
+Triangle box3 = new Triangle(boka, wys);
+System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+JOptionPane.showMessageDialog(null, "Trójkąt równoramienny o boku: a=" + box3.getpodstawatroj() + " i wysokości: " + box3.getwysokosctroj() + " ma pole: " + box3.getPole() + "\n i jeśli jest trójkątem prostokątnym, ma obwód równy: " + box3.getObwod());
+// Get the user's name.
+saveData(file, nazwapliku, box3);
+loadData(file);
+break;
+
+case "2": //to już dokończyć w programie 
+
+case "3": //to już dokończyć w programie 
+ System.out.print("Wpisz długość podstawy trójkąta: ");
+                    boka = keyboard.nextDouble();
+                    System.out.print("Wpisz wysokość tego trójkąta: ");
+                    wys = keyboard.nextDouble();
+                    Triangle box3 = new Triangle(boka, wys);
+                    System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                    JOptionPane.showMessageDialog(null, "Trójkąt o podstawie: " + box3.getpodstawatroj() + " i wysokości: " + box3.getwysokosctroj() + " ma pole: " + box3.getPole() + "\n i jeśli jest trójkątem prostokątnym, ma obwód równy: " + box3.getObwod());
+                    // Get the user's name.
+                    saveData(file, nazwapliku, box3);
+                    loadData(file);
+                    break;
+case "4": //to już dokończyć w programie 
+
+
+default: 
+JOptionPane.showMessageDialog(null, "Niepoprawna komenda! Uruchom ponownie program. Zwracaj uwagę na wielkie litery");
+break;
+}
+default: 
+JOptionPane.showMessageDialog(null, "Niepoprawna komenda! Uruchom ponownie program. Zwracaj uwagę na wielkie litery");
+break;
+} 
+break;
+
+case "3D":
+System.out.println("Wybrałeś figury 3D");
+System.out.println("Dla jakiej figury trójwymiarowej chcesz dokonać obliczeń objętości i pola powierzchni? Wpisz: \n [P] - prostopadloscian \n [K] - kula \n [G] - graniastosłup prawidłowy trójkątny \n [C] - czworościan foremny");
+figura3D = keyboard.nextLine();
+
+switch (figura3D) {
+
+case "P":
+System.out.println("Wybrałeś prostopadłościan.");
+System.out.print("Podaj bok a: ");
+                    a = keyboard.nextDouble();
+                    System.out.print("Podaj bok b: ");
+                    b = keyboard.nextDouble();
+                    System.out.print("Podaj bok c: ");
+                    c = keyboard.nextDouble();
+                    Prostopadloscian box4 = new Prostopadloscian(a,b,c);
+                    System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                    JOptionPane.showMessageDialog(null, "Prostopadłościan o wymiarach: "+box4.getboka()+"*"+box4.getbokb()+"*"+box4.getbokc()+"\n ma objętość równą: "+box4.getObjetosc()+"\n i pole siatki: " + box4.getSiatka());
+                    saveData(file, nazwapliku, box4);
+                    loadData(file); //tutaj z jakigos p0owodu mi program wywala
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Niepoprawna komenda! Uruchom ponownie program. Zwracaj uwagę na wielkie litery");
+                    break;
+
+case "K":
+System.out.println("Wybrałeś kule.");
+System.out.print("Wpisz promień: ");
+                    r = keyboard.nextDouble();
+                    Kula box7 = new Kula(r);
+                    System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                    JOptionPane.showMessageDialog(null, "Kula o promieniu r: " + box7.getpromien() + "\n ma objętość V= " + box7.getObjetosc() +  "\n i pole powierzchni P=" + box7.getSiatka());
+                    saveData(file, nazwapliku, box7);
+                    loadData(file);
+                    break;
+
+
+case "G":
+System.out.println("Wybrałeś graniastosłup.");
+System.out.print("Wpisz długość boku trójkąta w podstawie: ");
+                            boka = keyboard.nextDouble();
+                            System.out.print("Wpisz wysokość graniastosłupa:: ");
+                            H = keyboard.nextDouble();
+                            Graniastoslup box6 = new Graniastoslup (boka, H);
+                            System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                            JOptionPane.showMessageDialog(null, "Graniastosłup foremny trójkątny, o długości boku w podstawie a=" + box6.getpodstawatroj() + " i wysokości H=" + box6.getwysfigury() 
+                                    + "\n Ma objętość V=" + box6.getObjetosc() +  "\n I pole powierzchni P=" + box6.getSiatka());
+                            // Get the user's name.
+                            saveData(file, nazwapliku, box6);
+                            loadData(file);
+break;
+
+case "C":
+System.out.println("Wybrałeś czworościan.");
+//wystarczy chyba tylko a
+                            System.out.print("Wpisz długość boku a trójkąta: ");
+                            boka = keyboard.nextDouble();
+                            Troj3D box5 = new Troj3D(boka);
+                            System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                            JOptionPane.showMessageDialog(null, "Właściwości czworościanu, o boku a: " + box5.getpodstawatroj() 
+                                    + "\n Figura ma objętość równą: " + box5.getObjetosc4() + "\n pole powierzchni: " + box5.getSiatka4() 
+                                    + "\n wysokość: " + box5.getWysokoscH4() + "\n a wysokość ściany bocznej, jest równa: " + box5.getWysokoscsciany4());
+break;
+
+default: 
+JOptionPane.showMessageDialog(null, "Niepoprawna komenda! Uruchom ponownie program. Zwracaj uwagę na wielkie litery");
+break; 
+}
+break; //zamyka case 3D
+
+default: 
+JOptionPane.showMessageDialog(null, "Niepoprawna komenda! Uruchom ponownie program. Zwracaj uwagę na wielkie litery");
+break;
+} 
+break; //zamyka pierwszego switcha
+
+
+
+
+
+
+
+
+
+
+    System.out.println("Wpisz [P] - prostokąt, [K] - koło, [T] - trójkąt."); //kwadrat to też prostokąt
+    rodzajfigury = keyboard.nextLine();
+        
+    switch (rodzajfigury) {
+        case "P":
+            System.out.println("Co chcesz policzyć? Wpisz [2D] - figura płaska - kwadrat lub prostokąt, [3D] - figura przestrzenna - prostopadloscian");
+            prostokaty = keyboard.nextLine();
+            switch (prostokaty) {
+               2d zalatwione
+                case "3D":
+                    S
+                default:
+                    JOptionPane.showMessageDialog(null, "Niepoprawna komenda! Uruchom ponownie program. Zwracaj uwagę na wielkie litery");
+                    break;
+            }   break;
+        case "K":
+            System.out.println("Wybrałeś koło");
+            System.out.println("Co chcesz policzyć? Wpisz [2D] - figura płaska koło, [3D] - figura przestrzenna - kula");
+            kola = keyboard.nextLine(); //kola - koła/kule
+            switch (kola) {
+                case "2D":
+                   
+                case "3D":
+                    System.out.print("Wpisz promień: ");
+                    r = keyboard.nextDouble();
+                    Kula box7 = new Kula(r);
+                    System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                    JOptionPane.showMessageDialog(null, "Kula o promieniu r: " + box7.getpromien() + "\n ma objętość V= " + box7.getObjetosc() +  "\n i pole powierzchni P=" + box7.getSiatka());
+                    saveData(file, nazwapliku, box7);
+                    loadData(file);
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Niepoprawna komenda! Uruchom ponownie program. Zwracaj uwagę na wielkie litery");
+                    break;
+            }   break;
+        case "T":
+            
+            System.out.println("wybrałeś trójkąty");
+            System.out.println("Co chcesz policzyć? Wpisz [2D] - figura płaska - trójkąt, [3D] - figura przestrzenna - czworościan lub graniastosłup");
+            trojkaty = keyboard.nextLine();
+            switch (trojkaty) {
+                case "2D":
+                    System.out.print("Wpisz długość podstawy trójkąta: ");
+                    boka = keyboard.nextDouble();
+                    System.out.print("Wpisz wysokość tego trójkąta: ");
+                    wys = keyboard.nextDouble();
+                    Triangle box3 = new Triangle(boka, wys);
+                    System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                    JOptionPane.showMessageDialog(null, "Trójkąt o podstawie: " + box3.getpodstawatroj() + " i wysokości: " + box3.getwysokosctroj() + " ma pole: " + box3.getPole() + "\n i jeśli jest trójkątem prostokątnym, ma obwód równy: " + box3.getObwod());
+                    // Get the user's name.
+                    saveData(file, nazwapliku, box3);
+                    loadData(file);
+                    break;
+                case "3D":
+                    System.out.println("Wybrałeś obiekt 3D, wybierz co chcesz policzyć");
+                    System.out.println("Wpisz [4] - żeby policzyć objętość i siatke czworościanu foremnego");
+                    System.out.println("Wpisz [G] - żeby policzyć objętość i siatke graniastosłupa prawidłowego trójkątnego");
+                    System.out.println("Wpisz [I] - żeby uzyskać definicję powyższych figur");
+                    wybortroj = keyboard.nextLine();
+                    if (wybortroj.equals("I")){
+                    System.out.println("[4] Czworościan foremny (tetraedr), to czworościan, którego ściany są przystającymi trójkątami równobocznymi.");
+                    System.out.println("[G] Graniastosłup prawidłowy trójkątny, to graniastosłup o podstawie trójkąta równobocznego");
+                    wybortroj = keyboard.nextLine();
+                    }
+                    switch (wybortroj) {
+                        case "4":
+                            //wystarczy chyba tylko a
+                            System.out.print("Wpisz długość boku a trójkąta: ");
+                            boka = keyboard.nextDouble();
+                            Troj3D box5 = new Troj3D(boka);
+                            System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                            JOptionPane.showMessageDialog(null, "Właściwości czworościanu, o boku a: " + box5.getpodstawatroj() 
+                                    + "\n Figura ma objętość równą: " + box5.getObjetosc4() + "\n pole powierzchni: " + box5.getSiatka4() 
+                                    + "\n wysokość: " + box5.getWysokoscH4() + "\n a wysokość ściany bocznej, jest równa: " + box5.getWysokoscsciany4());
+                        
+                        case "G":
+                            System.out.print("Wpisz długość boku trójkąta w podstawie: ");
+                            boka = keyboard.nextDouble();
+                            System.out.print("Wpisz wysokość graniastosłupa:: ");
+                            H = keyboard.nextDouble();
+                            Graniastoslup box6 = new Graniastoslup (boka, H);
+                            System.out.println("Wyniki pojawią się w okienku (jeśli go nie widać, zminimalizuj wszystkie okna)");
+                            JOptionPane.showMessageDialog(null, "Graniastosłup foremny trójkątny, o długości boku w podstawie a=" + box6.getpodstawatroj() + " i wysokości H=" + box6.getwysfigury() 
+                                    + "\n Ma objętość V=" + box6.getObjetosc() +  "\n I pole powierzchni P=" + box6.getSiatka());
+                            // Get the user's name.
+                            saveData(file, nazwapliku, box6);
+                            loadData(file);
+                            
+                        case "I":
+                            break;
+                        default:
+                            JOptionPane.showMessageDialog(null, "Niepoprawna komenda! Uruchom ponownie program. Zwracaj uwagę na wielkie litery");
+                            break;    
+                    }
+            }   break;
+        default:
+            System.out.println("Błąd: Niepoprawny rodzaj figury. Uruchom ponownie program i wpisz ponownie.");
+            System.exit(0); // End the program. 
+    }
