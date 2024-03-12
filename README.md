@@ -1,0 +1,1 @@
+Zmiana nr 1 - Wprowadzono pierwszą linijkę kodu, by było można tworzyć commity 
